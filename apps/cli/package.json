@@ -1,12 +1,17 @@
 {
-  "name": "haven-cli",
+  "name": "haven",
   "module": "main.ts",
+  "bin": {
+    "haven": "./src/main.ts"
+  },
   "type": "module",
   "scripts": {
     "dev": "bun run --watch src/main.ts",
     "start": "bun run src/main.ts",
-    "build": "bun build --compile --minify-whitespace --minify-syntax --target bun --outfile server ./src/main.ts",
-    "build:cli": "bun build ./src/main.ts --outdir ./dist --target node",
+    "build": "bun build ./src/main.ts --outdir ./dist --target bun",
+    "build:file": "bun build --compile --minify-whitespace --minify-syntax --target bun --outfile haven-cli ./src/main.ts",
+    "link-cli": "bun link",
+    "haven": "link:haven",
     "db:migrate": "drizzle-kit migrate",
     "db:generate": "drizzle-kit generate",
     "db:studio": "drizzle-kit studio",
@@ -20,12 +25,14 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
+    "@googleapis/gmail": "12.0.0",
     "@t3-oss/env-core": "^0.13.4",
     "arctic": "^3.6.0",
     "commander": "^13.1.0",
     "drizzle-orm": "^0.43.1",
     "elysia": "^1.2.25",
     "google-auth-library": "^9.15.1",
+    "nanoid": "5.1.5",
     "open": "^10.1.2",
     "zod": "^3.24.3"
   }

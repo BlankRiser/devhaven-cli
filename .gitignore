@@ -119,3 +119,5 @@ out
 
 # SQLite database file
 sqlite.db
+
+haven-cli

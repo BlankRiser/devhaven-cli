@@ -10,6 +10,16 @@ bun run db:push
 # Run
 bun run dev login # an argument is required for now
 
+# Run cli
+bun run build
+bun link 
+bun link haven
+haven login
+
+# Run cli from a file
+bun run build:file # a file named "haven-cli" will be created
+./haven-cli login
+
 # Open drizzle studio
 bun run db:studio 
 ```

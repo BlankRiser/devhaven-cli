@@ -28,6 +28,9 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
-    }
+    },
+
+    // TypeScript-specific options
+    "outDir": "dist"
   }
 }
