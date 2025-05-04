@@ -1,0 +1,32 @@
+{
+  "name": "haven-cli",
+  "module": "main.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run --watch src/main.ts",
+    "start": "bun run src/main.ts",
+    "build": "bun build --compile --minify-whitespace --minify-syntax --target bun --outfile server ./src/main.ts",
+    "build:cli": "bun build ./src/main.ts --outdir ./dist --target node",
+    "db:migrate": "drizzle-kit migrate",
+    "db:generate": "drizzle-kit generate",
+    "db:studio": "drizzle-kit studio",
+    "db:push": "drizzle-kit push"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.2.11",
+    "drizzle-kit": "^0.31.1"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@t3-oss/env-core": "^0.13.4",
+    "arctic": "^3.6.0",
+    "commander": "^13.1.0",
+    "drizzle-orm": "^0.43.1",
+    "elysia": "^1.2.25",
+    "google-auth-library": "^9.15.1",
+    "open": "^10.1.2",
+    "zod": "^3.24.3"
+  }
+}

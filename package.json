@@ -1,0 +1,19 @@
+{
+  "name": "devhaven-cli",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "cli": "bun run --cwd apps/cli",
+    "cli:add": "bun add --cwd apps/cli"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BlankRiser/devhaven-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/BlankRiser/devhaven-cli/issues"
+  }
+}
