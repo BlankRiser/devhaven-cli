@@ -138,7 +138,10 @@ export async function saveToken(token: Credentials, userInfo: UserInfo) {
       .where(eq(account.id, existingAccount.id));
   }
 
-  console.info("Token stored in database for user:", userInfo.email);
+  console.info(
+    chalk.bgGreenBright("Token stored in database for user:", userInfo.email)
+  );
+  process.exit(0);
 }
 
 export async function loadToken() {
@@ -182,7 +185,7 @@ export async function isUserExists(email?: string): Promise<boolean> {
         .from(user)
         .where(eq(user.email, email))
         .limit(1);
-      
+
       return existingUser.length > 0;
     } else {
       const anyUser = await db

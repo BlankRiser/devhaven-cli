@@ -11,9 +11,10 @@ export async function getModelAction(this: Command) {
   const model = await rawlist({
     message: "Select a model provider",
     choices: [
+      { name: "Open Router", value: "open-router" },
+      { name: "LM Studio", value: "lmstudio" },
       { name: "Open AI", value: "open-ai" },
       { name: "Claude", value: "claude" },
-      { name: "Open Router", value: "open-router" },
     ],
     theme: {
       style: {

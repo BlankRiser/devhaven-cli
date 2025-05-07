@@ -23,8 +23,8 @@ export const runAllCommands = () => {
     .command("login")
     .description("Log in with Google OAuth")
     .action(loginAction);
-  
-    program
+
+  program
     .command("reset")
     .description("Reset Google OAuth")
     .action(resetAuthAction);
@@ -32,12 +32,16 @@ export const runAllCommands = () => {
   program
     .command("user")
     .description("Manage users")
-    .option("--all", "Display all the user info stored in the database.")
+    .option("-l, --list", "Display all the user info stored in the database.")
     .action(userInfoAction);
 
   program.command("model").description("Manage users").action(getModelAction);
-  
-  program.command("mail").description("Manage emails").action(getRecentMailAction);
+
+  program
+    .command("mail")
+    .description("Manage emails")
+    .option("-r, --recent <count>", "Show recent mails.")
+    .action(getRecentMailAction);
 
   program.parse(process.argv);
 };

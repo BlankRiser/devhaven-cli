@@ -14,6 +14,8 @@ export const env = createEnv({
     GOOGLE_CLIENT_SECRET:z.string().min(1),
 
     REDIRECT_URI: z.string().min(1).default("http://localhost:3000/api/auth/callback/google"),
+
+    OPEN_ROUTER_API_KEY:z.string().min(1),
   },
   runtimeEnv: process.env,
 });

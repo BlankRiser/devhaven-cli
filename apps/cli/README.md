@@ -32,4 +32,4 @@ bun run db:studio
 - [execa](https://github.com/sindresorhus/execa)
 - [meow](https://www.npmjs.com/package/meow)
 - [ni](https://github.com/antfu-collective/ni#readme)
-- [ora](https://www.npmjs.com/package/ora)
+- [ora](https://www.npmjs.com/package/ora): Terminal spinner
