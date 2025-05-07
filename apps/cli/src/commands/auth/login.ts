@@ -1,10 +1,12 @@
 import { getAuthenticatedClient } from "@/lib/auth";
+import type { Command } from "commander";
 
-export const login = async () => {
+export async function loginAction(this: Command) {
   try {
     await getAuthenticatedClient();
   } catch (error) {
     console.error("Authentication failed:", error);
-    process.exit(1);
+    
   }
+  process.exit(0);
 };

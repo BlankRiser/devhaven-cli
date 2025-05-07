@@ -2,6 +2,7 @@ import { db } from "@/db";
 import { authUrl, oAuth2Client } from "@/db/oauth";
 import { account, user } from "@/db/schema";
 import type { UserInfo } from "@/types/oauth.types";
+import chalk from "chalk";
 import { eq } from "drizzle-orm";
 import { Elysia } from "elysia";
 import type { Credentials, OAuth2Client } from "google-auth-library";
@@ -171,4 +172,28 @@ export async function getUserInfo(client: OAuth2Client): Promise<UserInfo> {
   const url = "https://www.googleapis.com/oauth2/v1/userinfo?alt=json";
   const response = await client.request<UserInfo>({ url });
   return response.data;
+}
+
+export async function isUserExists(email?: string): Promise<boolean> {
+  try {
+    if (email) {
+      const existingUser = await db
+        .select()
+        .from(user)
+        .where(eq(user.email, email))
+        .limit(1);
+      
+      return existingUser.length > 0;
+    } else {
+      const anyUser = await db
+        .select()
+        .from(user)
+        .orderBy(user.createdAt)
+        .limit(1);
+      return anyUser.length > 0;
+    }
+  } catch (err) {
+    console.error(chalk.bgRed("Please login using `haven login`"));
+    return false;
+  }
 }

@@ -26,8 +26,10 @@
   },
   "dependencies": {
     "@googleapis/gmail": "12.0.0",
+    "@inquirer/prompts": "7.5.0",
     "@t3-oss/env-core": "^0.13.4",
     "arctic": "^3.6.0",
+    "chalk": "5.4.1",
     "commander": "^13.1.0",
     "drizzle-orm": "^0.43.1",
     "elysia": "^1.2.25",
