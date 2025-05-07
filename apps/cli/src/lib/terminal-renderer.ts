@@ -1,9 +1,9 @@
 import chalk from "chalk";
-
 import markdownit from "markdown-it";
 import terminalLink from "terminal-link";
 import stripAnsi from "strip-ansi";
 import wrapAnsi from "wrap-ansi";
+import he from "he";
 
 const md = markdownit();
 const terminalWidth = process.stdout.columns || 80;
@@ -58,6 +58,9 @@ function markdownToTerminal(text: string): string {
 
   // Clean up remaining HTML tags
   result = result.replace(/<[^>]*>/g, "");
+
+  // Decode HTML entities (like &quot;, &amp;, etc.)
+  result = he.decode(result);
 
   // Wrap text to terminal width and handle line breaks
   result = wrapAnsi(result, terminalWidth, { hard: true });
